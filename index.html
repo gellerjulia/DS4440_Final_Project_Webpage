@@ -48,7 +48,7 @@
 
 <h2>Introduction</h2>
 
-<p>TODO
+<p>Testing our architecture vs theirs.
 </p>
 
 
@@ -64,19 +64,27 @@
 
 <ul>
   <li>Adjusted model</li>
-  <li>Tried our model on 3 types of datasets: tumor and healthy images, only tumor images, class 1 and 2 tumor images</li>
+  <li>Tried our model on 3 types of datasets: tumor and healthy images, only tumor images, class 1 and 2 tumor images and retrained on each to see if our architecture was okay for any subset of this problem.</li>
   <li>Compared each model to paper's model trained on that data</li>
   <li>64 vs 128 sized images, found 64x64 best</li>
-  <li>tried balanced (train:500, val:100, test:100) vs upsampled data (train:rest, val:100, test:100), to try to get class 2 tumor working better, unsuccesful </li>  
+  <li>tried balanced (train:500, val:100, test:100) vs imbalanced data (train:(1:500, 2:800, 3:500), val:100, test:100), to try to get class 2 tumor working better, unsuccesful </li>  
 </ul>
 
 
 <h2>Results</h2>
 
 <ul> For each model
+  Qi: Tumor + healthy
+  Julia: Tumor only
+  Qi: Class 1 and 2 tumor
   <li>Confusion matrices</li>
-  <li>Accuracy Score</li>
-  <li>Show correct vs inccorect image predictions</li>
+  <li>Julia: Accuracy, preciison, recall scors</li>
+  <li>Julia: Show correct vs inccorect image predictions</li>
+  <li>Qi: Show graphs with training and val loss</li>
+  <li>Julia: See what is happening with weights and biases during learning (exploding, not learning, etc.)</li>
+  <li>Qi: observing intermediate layer outputs</li>
+
+
 </ul>
 
 <p>TODO
