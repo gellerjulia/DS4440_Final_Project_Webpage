@@ -16,7 +16,29 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 <link href="style.css" rel="stylesheet">
+<style>
+table {
+  width: 50%; /* Half the page width */
+  border-collapse: collapse;
+  table-layout: fixed;
+}
 
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+th:nth-child(1),
+td:nth-child(3),
+td:nth-child(4) {
+  width: 25%;
+}
+
+th:nth-child(2) {
+  width: 35%;
+}
+</style>
 </head>
 <body class="nd-docs">
 <div class="nd-pageheader">
@@ -59,39 +81,8 @@
 <p> We compared the original model to an adjsuted  model we created.
 </p>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neural Network Architecture</title>
-<style>
-table {
-  width: 50%; /* Half the page width */
-  border-collapse: collapse;
-  table-layout: fixed;
-}
 
-th, td {
-  border: 1px solid black;
-  padding: 8px;
-  text-align: left;
-}
-
-th:nth-child(1),
-td:nth-child(3),
-td:nth-child(4) {
-  width: 25%;
-}
-
-th:nth-child(2) {
-  width: 35%;
-}
-</style>
-</head>
-<body>
-
-<h2>Neural Network Architecture</h2>
+<h2>Original Model Architecture</h2>
 
 <table>
   <tr>
@@ -149,6 +140,12 @@ th:nth-child(2) {
     <td></td>
   </tr>
   <tr>
+    <td>Softmaz</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Total Parameters:</td>
     <td></td>
     <td>411,300</td>
@@ -156,8 +153,81 @@ th:nth-child(2) {
   </tr>
 </table>
 
-</body>
-</html>
+
+
+ <h2>Adjusted Model Architecture</h2>
+
+<table>
+  <tr>
+    <th>Layer (type)</th>
+    <th>Output Shape</th>
+    <th>Param #</th>
+    <th>Activation</th>
+  </tr>
+  <tr>
+    <td>Input</td>
+    <td>(batch_size, 1, 64, 64)</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Conv2d</td>
+    <td>(batch_size, 16, 64, 64)</td>
+    <td>160</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>MaxPool2d</td>
+    <td>(batch_size, 16, 32, 32)</td>
+    <td></td>
+    <td>ReLU</td>
+  </tr>
+  <tr>
+    <td>Conv2d</td>
+    <td>(batch_size, 16, 32, 32)</td>
+    <td>4,640</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>MaxPool2d</td>
+    <td>(batch_size, 32, 16, 16)</td>
+    <td></td>
+    <td>ReLU</td>
+  </tr>
+  <tr>
+    <td>Conv2d</td>
+    <td>(batch_size, 64, 16, 16)</td>
+    <td>18,496</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>MaxPool2d</td>
+    <td>(batch_size, 64, 8, 8)</td>
+    <td></td>
+    <td>ReLU</td>
+  </tr>
+
+  <tr>
+    <td>Linear</td>
+    <td>(batch_size, 128)</td>
+    <td>524,416</td>
+    <td>ReLU</td>
+  </tr>
+  <tr>
+    <td>Linear</td>
+    <td>(batch_size, 4)</td>
+    <td>516</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Total Parameters:</td>
+    <td></td>
+    <td>548,228</td>
+    <td></td>
+  </tr>
+</table>
+
+
 
 
 <h2>Results</h2>
