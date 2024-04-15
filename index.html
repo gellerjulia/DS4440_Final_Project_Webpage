@@ -49,14 +49,14 @@
 
 <p>The data used in this project is a combination of two datasets, referred to as fig share and  SARTAJ. Fig share is the data used in the original paper. This data includes T1-weighted MRI brain images for patients with one of three types of tumors: glioma, meningioma, and pituitary. SARTAJ is a Kaggle dataset with MRI brain images of patients with one of the aforementioned tumor types and healthy patients. In our project, we only use the brain images of healthy patients from this dataset. Both datasets had grayscale images. Fig share images were mainly sized 512x512 while SARTAJ images were mainly size 233x236, though there was variation in each dataset. All images were resized to 64x64 and 128x128 images. The varying sizes were tested in an attempt to achieve increased model performance, however, models trained on the 128x128 sized images had worse accuracy so we only trained models on images resized to be 64x64 pixels. </p>
 
-<p> We test two splits of data: balanced and imbalanced. The balanced split consists of 500 train, 100 validation, and 100 test images for each tumor and 219 train, 50 validation, and 50 test images for the healthy class. A smaller validation and test set was used for the healthy class as this class consisted of fewer images and we wanted to retain as many images as possible for training. The imbalanced split was created to inflate the number of training samples for the glioma class as it was observed that this class was the class with the largest proportion of incorrect predictions. Imbalanced data had the above-stated splits for all classes, except the glioma class which had 836 train, 50 validation, and 50 test images. 
+<p> We tested the models on balanced and an imbalanced splits of train, test, and validation data where the imbalanced set had more train images for the glioma class as we noticed this calss had the msot incorrect predictions. We found that the imbalanced dataset improved accuracy so wwe tested all models on the imbalanced dataset. This dataset consists of 500 train, 100 validation, and 100 test images for each non-glioma tumor and 219 train, 50 validation, and 50 test images for the healthy class. A smaller validation and test set was used for the healthy class as this class consisted of fewer images and we wanted to retain as many images as possible for training. The glioma class had 836 train, 50 validation, and 50 test images. 
 </p>
 
 
 
 <h2>Models</h2>
 
-<p> We compared the original model to an adjsuted model we created.
+<p> We compared the original model to an adjsuted  model we created.
 </p>
 
 <table>
@@ -65,54 +65,47 @@
     <th>Output Shape</th>
     <th>Param #</th>
     <th>Activation</th>
-    <th># Params</th>
   </tr>
   <tr>
     <td>Input</td>
-    <td>(batch_size, 1, h, w)</td>
-    <td></td>
+    <td>(batch_size, 1, 64, 64)</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
-    <td>Conv2d (conv1)</td>
-    <td>(batch_size, 32, h, w)</td>
+    <td>Conv2d</td>
+    <td>(batch_size, 32, 62, 32)</td>
     <td>320</td>
     <td>ReLU</td>
-    <td></td>
   </tr>
   <tr>
     <td>MaxPool2d</td>
-    <td>(batch_size, 32, h/2, w/2)</td>
-    <td></td>
+    <td>(batch_size, 32, 31, 31)</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
-    <td>Conv2d (conv2)</td>
-    <td>(batch_size, 32, h/2, w/2)</td>
-    <td>9248</td>
+    <td>Conv2d</td>
+    <td>(batch_size, 32, 29, 29)</td>
+    <td>9,248</td>
     <td>ReLU</td>
-    <td></td>
   </tr>
   <tr>
     <td>MaxPool2d</td>
-    <td>(batch_size, 32, h/4, w/4)</td>
-    <td></td>
+    <td>(batch_size, 32, 14, 14)</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <td>Flatten</td>
-    <td>(batch_size, 32*(h/4)*(w/4))</td>
-    <td></td>
+    <td>(batch_size, 6272)</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <td>Linear (lin1)</td>
     <td>(batch_size, 64)</td>
-    <td>131136</td>
+    <td>401,472</td>
     <td>ReLU</td>
     <td></td>
   </tr>
@@ -126,7 +119,7 @@
   <tr>
     <td>Total Parameters:</td>
     <td></td>
-    <td>141964</td>
+    <td>411,300</td>
     <td></td>
     <td></td>
   </tr>
