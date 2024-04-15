@@ -90,56 +90,56 @@
    </tr>
    <tr>
      <td>Input</td>
-     <td>(batch_size, 1, 64, 64)</td>
+     <td>(-1, 1, 64, 64)</td>
      <td></td>
      <td></td>
    </tr>
    <tr>
      <td>Conv2d</td>
-     <td>(batch_size, 16, 64, 64)</td>
+     <td>(-1, 16, 64, 64)</td>
      <td>160</td>
      <td></td>
    </tr>
    <tr>
      <td>MaxPool2d</td>
-     <td>(batch_size, 16, 32, 32)</td>
+     <td>(-1, 16, 32, 32)</td>
      <td></td>
      <td>ReLU</td>
    </tr>
    <tr>
      <td>Conv2d</td>
-     <td>(batch_size, 16, 32, 32)</td>
+     <td>(-1, 16, 32, 32)</td>
      <td>4,640</td>
      <td></td>
    </tr>
    <tr>
      <td>MaxPool2d</td>
-     <td>(batch_size, 32, 16, 16)</td>
+     <td>(-1, 32, 16, 16)</td>
      <td></td>
      <td>ReLU</td>
    </tr>
    <tr>
      <td>Conv2d</td>
-     <td>(batch_size, 64, 16, 16)</td>
+     <td>(-1, 64, 16, 16)</td>
      <td>18,496</td>
      <td></td>
    </tr>
    <tr>
      <td>MaxPool2d</td>
-     <td>(batch_size, 64, 8, 8)</td>
+     <td>(-1, 64, 8, 8)</td>
      <td></td>
      <td>ReLU</td>
    </tr>
  
    <tr>
      <td>Linear</td>
-     <td>(batch_size, 128)</td>
+     <td>(-1, 128)</td>
      <td>524,416</td>
      <td>ReLU</td>
    </tr>
    <tr>
      <td>Linear</td>
-     <td>(batch_size, 4)</td>
+     <td>(-1, 4)</td>
      <td>516</td>
      <td></td>
    </tr>
@@ -163,43 +163,43 @@
         </tr>
         <tr>
           <td>Input</td>
-          <td>(batch_size, 1, 64, 64)</td>
+          <td>(-1, 1, 64, 64)</td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <td>Conv2d</td>
-          <td>(batch_size, 32, 62, 32)</td>
+          <td>(-1, 32, 62, 32)</td>
           <td>320</td>
           <td>ReLU</td>
         </tr>
         <tr>
           <td>MaxPool2d</td>
-          <td>(batch_size, 32, 31, 31)</td>
+          <td>(-1, 32, 31, 31)</td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <td>Conv2d</td>
-          <td>(batch_size, 32, 29, 29)</td>
+          <td>(-1, 32, 29, 29)</td>
           <td>9,248</td>
           <td>ReLU</td>
         </tr>
         <tr>
           <td>MaxPool2d</td>
-          <td>(batch_size, 32, 14, 14)</td>
+          <td>(-1, 32, 14, 14)</td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <td>Linear</td>
-          <td>(batch_size, 64)</td>
+          <td>(-1, 64)</td>
           <td>401,472</td>
           <td>ReLU</td>
         </tr>
         <tr>
           <td>Linear</td>
-          <td>(batch_size, 4)</td>
+          <td>(-1, 4)</td>
           <td>260</td>
           <td></td>
         </tr>
