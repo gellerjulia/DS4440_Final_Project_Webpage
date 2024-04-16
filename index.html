@@ -224,10 +224,147 @@
 
 
 
+<h3>Training</h3>
 
-<h2>Results</h2>
+<p> All models were trained using Cross Entropy Loss and the Adam optimizer. The adjusted models were trained for 15 epochs with a learning rate of 0.001 while the original paper models were trained for 10 epochs with a learning rate of 0.001 as was specified in the original paper.
+</p>
 
-<ul> For each model
+
+
+<h3>Results</h3>
+
+<h4>Tumor and Healthy Models</h4>
+
+<div class="row">
+  <div class="column">
+
+    <h5>Adjusted Model</h5>
+
+    <p>Test Loss: 0.5362884600957235, Test Accuracy: 0.8033333333333333
+    </p>
+
+    <p>Figure 1: Confusion Matrix for Adjusted Model trained on tumor + healthy data</p>
+
+    <img src="graphs/adjusted_matrix.png" width="500" height="500">
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <p>Figure 2: Training and Validation Loss and Accuracy plots for Adjusted Model trained on tumor and healthy data</p>
+    <img src="graphs/adjusted_train_loss_plot.png" width="550" height=270">
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <p>Figure 3: Outputs of convolution 1 of Adjusted model trained on tumor + healthy data</p>
+    <img src="graphs/adjusted_1st_conv.png" width="500" height="500">
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <p>Figure 4: Outputs of convolution 2 of Adjusted model trained on tumor + healthy data</p>
+    <img src="graphs/adjusted_2nd_conv.png" width="520" height="520">
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <p>Figure 5: Outputs of convolution 3 of Adjusted model trained on tumor + healthy data</p>
+    <img src="graphs/adjusted_3rd_conv.png" width="550" height="550">
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <p>Figure 6: Parameters Gradients of Adjusted model trained on tumor + healthy data</p>
+    <img src="graphs/adjusted_para_grad.png" width="500" height="312.5">
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <p>Figure 7: Activations of Adjusted model trained on tumor + healthy data</p>
+    <img src="graphs/adjusted_act.png" width="500" height="312.5">
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <p>Figure 8: Activations Parameters of Adjusted model trained on tumor + healthy data</p>
+    <img src="graphs/adjusted_act_grad.png" width="500" height="312.5">
+  </div>
+
+  <div class="column">
+    
+    <h5>Original Model</h5>
+
+    <p>Test Loss: 1.1280177036921184, Test Accuracy: 0.61
+    </p>
+
+    <p>Figure 1: Confusion Matrix for Original Model trained on tumor + healthy data</p>
+
+    <img src="graphs/original_matrix.png" width="500" height="500">
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <p>Figure 2: Training and Validation Loss and Accuracy plots for Original Model trained on tumor and healthy data</p>
+    <img src="graphs/original_train_loss.png" width="550" height="270">
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <p>Figure 3: Outputs of convolution 1 of Original model trained on tumor + healthy data</p>
+    <img src="graphs/original_1st_conv.png" width="500" height="500">
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <p>Figure 4: Outputs of convolution 2 of Original model trained on tumor + healthy data</p>
+    <img src="graphs/original_2nd_conv.png" width="520" height="520">
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br>
+
+    <p>Figure 5: Parameters Gradients of Original model trained on tumor + healthy data</p>
+    <img src="graphs/original_para_grad.png" width="500" height="312.5">
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <p>Figure 6: Activations of Original model trained on tumor + healthy data</p>
+    <img src="graphs/original_act.png" width="500" height="312.5">
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <p>Figure 7: Activations Parameters of Original model trained on tumor + healthy data</p>
+    <img src="graphs/original_act_grad.png" width="500" height="312.5">
+  </div>
+</div>
+
+
+<!-- <ul> For each model
   Qi: Tumor + healthy
   Julia: Tumor only
   Qi: Class 1 and 2 tumor
@@ -242,7 +379,7 @@
 </ul>
 
 <p>TODO
-</p>
+</p> -->
 
 
 <h3>References</h3>
