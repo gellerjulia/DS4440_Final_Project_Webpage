@@ -2,8 +2,10 @@ body, td, th {
   font-family: 'Open Sans', sans-serif;
 }
 h2 {
-  margin-top: 1ex;
+  margin-top: 1ex; /* Keep the margin-top as desired */
+  margin-bottom: 0.5rem; /* Adjust as needed to make the space smaller */
 }
+
 /* Deep blues */
 .color-primary-0 { color: #233BF5 }
 .color-primary-1 { color: #3314DE }
@@ -79,12 +81,4 @@ nobr.widenobr {
   content: "";
   clear: both;
   display: table;
-}
-
-.h2 {
-  margin-bottom: 0.5rem; /* Adjust as needed */
-}
-
-.p {
-  margin-bottom: 0.5rem; /* Adjust as needed */
 }
