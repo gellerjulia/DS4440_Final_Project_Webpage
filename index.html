@@ -83,6 +83,8 @@ Key takeaways include the model's ability to classify tumors with high accuracy 
 <p> This model uses a straightforward architecture with two convolutional layers and max pooling followed by fully connected layers. It's a basic approach designed to capture fundamental patterns in the image data without overfitting, suitable for smaller datasets or less complex image features. Each convolution was 32 filters with a kernel size of 3. Each maxpool kernel size was 2. The linear layer consisted of 64 neurons.</p>
 
 <h4> Resnet Model</h4>
+<p>Resnet-50 is a much deeper and more sophisticated model that uses residual connections to enable training of deeper networks without the problem of vanishing gradients. This model is designed to capture highly complex features and interactions in image data, making it potentially more accurate for complex tasks such as brain tumor classification, where differentiating between multiple classes and subtle features is crucial.</p>
+<br>
 <ul>
   <li>Initial Convolution and Max Pooling:
     <ul>
@@ -516,6 +518,38 @@ Key takeaways include the model's ability to classify tumors with high accuracy 
   </div>
 </div>
 
+<h5>Resent-50</h5>
+<p>Test Loss: 0.1896, Test Accuracy: 94.29%
+</p>
+<p>Figure 1: Confusion Matrix for Resnet-50</p>
+<img src="graphs/resnet_confusion_matrix.png" width="600" height="600">
+<br><br>
+<p>Figure 2: Training and Validation Loss and Accuracy plotsfor Resnet-50</p>
+<img src="graphs/resnet_train_val_plots.png" width="800" height="400">
+<br><br>
+<p>Figure 3.1: Outputs of convolution 1 of Resnet-50</p>
+<img src="graphs/resnet_conv1.png" width="800" height="800">
+<br><br>
+<p>Figure 3.2: Outputs of convolution 12 of Resnet-50</p>
+<img src="graphs/resnet_conv2.png" width="800" height="800">
+<br><br>
+<p>Figure 3.3: Outputs of convolution 10 of Resnet-50</p>
+<img src="graphs/resnet_conv10.png" width="800" height="800">
+<br><br>
+<p>Figure 3.4: Outputs of convolution 15 of Resnet-50</p>
+<img src="graphs/resnet_conv15.png" width="800" height="800">
+<br><br>
+<p>Figure 3.5: Outputs of convolution 39 of Resnet-50</p>
+<img src="graphs/resnet_conv39.png" width="800" height="800">
+<br><br>
+<p>Figure 3.6: Outputs of convolution 45 of Resnet-50</p>
+<img src="graphs/resnet_conv45.png" width="800" height="800">
+<br><br>
+<p>Figure 3.7: Outputs of convolution 53 of Resnet-50</p>
+<img src="graphs/resnet_conv53.png" width="800" height="800">
+<br><br>
+
+ 
 <h3>Conclusions</h3>
 <p>The best model was Resnet with about 94% accuracy on test data. In the medical domain, a type 1 error is when a model incorrectly predicts the presence of disease and a type 2 error is when the model fails to predict an instance of a disease. Type 2 errors must be avoided and it is also highly sought after for type 1 errors to be minimized. The Resnet model had 0 type 1 and 2 errors which is very encouraging. The majority of mistakes were made on class 1 which suggests that training with a higher balance of class 1 samples may improve model performance. While it was not feasible to include all outputs from each convolution as there were too many, interesting convolution outputs were included. Convolutions 1 and 10 appear to pick up on textures and highlight the parietal lobe of the brain. Convolution 2 created more black and white scans of the brain. Convolution 15 was a large layer with low level features of the brain. The last layers including convolutions 39, 49, and 53 tended to have very high level features. 
 </p>
