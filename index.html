@@ -39,26 +39,37 @@
 
 <h2>Introduction</h2>
 
-<p>The goal of our project is to create a Neural Network that can classify if an MRI brain image was either healthy, contained a glioma tumor, contained a meningioma tumor, or contained a pituitary tumor. We based our approach off of the publication &quot;Brain Tumor Classification Using Convolutional Neural Network&quot; by Abiwinanda et. al. The publication we used successfully built a model that classified tumor images as one of the three aforementioned tumors, but we wanted to extend the capabilities to also distinguish between tumor and healthy brain scans so the model could fulfill a wider array of physician needs. 
+<p>
+The goal of our project was to train a Neural Network to classify if an MRI brain image was healthy or contained either a glioma, meningioma, or pituitary tumor. We based our approach off on a publication that reported high accuracy for a model that classified brain images as one of the three aforementioned tumors (Abiwinanda et al., 2020). We wanted to extend the capabilities to also distinguish between tumor and healthy brain scans so the model could fulfill a wider array of physician needs. We tested three model architectures to identify a suitable model for this problem: the model from the paper (original model), a model we created (adjusted), and a fine-tuned Resnet50 model (Resnet).
 </p>
 
+<h2>Paper Review</h2>
 
+<p>
+The paper "Brain Tumor Classification Using Convolutional Neural Network" focuses on developing an efficient CNN model for classifying three common types of brain tumors—Glioma, Meningioma, and Pituitary—using T1-weighted contrast-enhanced MRI images. The study simplifies the conventional method of tumor classification by eliminating the need for prior region-based segmentation and feature extraction, thereby streamlining the process. The proposed model, tested on 3,064 images, achieved a training accuracy of 98.51% and a validation accuracy of 84.19%, demonstrating that a simple CNN architecture could yield high accuracy and potentially improve clinical diagnostic processes.
+</p>
+
+<p>
+Key takeaways include the model's ability to classify tumors with high accuracy using minimal computational resources and without the complexities of tumor segmentation, suggesting significant potential for real-world applications. The findings highlight the power of deep learning in medical image analysis and suggest further exploration into more sophisticated models that could improve accuracy and adaptability to different clinical settings.</p>
+</p>
 
 <h2>About the Data</h2>
 
 <p>The data used in this project is a combination of two datasets, referred to as <a href="https://figshare.com/articles/dataset/brain_tumor_dataset/1512427/5"
   >fig share</a> and  <a href="https://www.kaggle.com/datasets/sartajbhuvaji/brain-tumor-classification-mri"
-  >SARTAJ</a>. Fig share is the data used in the original paper. This data includes T1-weighted MRI brain images for patients with one of three types of tumors: glioma, meningioma, and pituitary. SARTAJ is a Kaggle dataset with MRI brain images of patients with one of the aforementioned tumor types and healthy patients. In our project, we only use the brain images of healthy patients from this dataset. Both datasets had grayscale images. Fig share images were mainly sized 512x512 while SARTAJ images were mainly size 233x236, though there was variation in each dataset. All images were resized to 64x64 and 128x128 images. The varying sizes were tested in an attempt to achieve increased model performance, however, models trained on the 128x128 sized images had worse accuracy so we only trained models on images resized to be 64x64 pixels. </p>
+  >SARTAJ</a>. 
+  Fig share is the data used in the original paper. This data includes T1-weighted MRI brain images for patients with one of three types of tumors: glioma, meningioma, and pituitary. SARTAJ is a Kaggle dataset with MRI brain images of patients with one of the aforementioned tumor types and healthy patients. In our project, we only use the brain images of healthy patients from this dataset. Both datasets had grayscale images. Fig share images were mainly sized 512x512 while SARTAJ images were 233x236, though there was variation in each dataset. Various sizes of the data were tested with different models to create the best performing models. The original and adjusted models both use 64x64 grayscale images while Resnet worked best on 256x254 color (RGB) images.
+</p>
 
-<p> We tested the models on balanced and an imbalanced splits of train, test, and validation data where the imbalanced set had more train images for the glioma class as we noticed this calss had the msot incorrect predictions. We found that the imbalanced dataset improved accuracy so wwe tested all models on the imbalanced dataset. This dataset consists of 500 train, 100 validation, and 100 test images for each non-glioma tumor and 219 train, 50 validation, and 50 test images for the healthy class. A smaller validation and test set was used for the healthy class as this class consisted of fewer images and we wanted to retain as many images as possible for training. The glioma class had 836 train, 50 validation, and 50 test images. 
+<p> 
+  We test two splits of data: balanced and imbalance. The balanced split consists of 500 train, 100 validation, and 100 test images for each tumor and 219 train, 50 validation, and 50 test images for the healthy class. Smaller validation and test sets were used for the healthy class as this class consisted of fewer images and we wanted to retain as many images as possible for training. The imbalanced split was created to inflate the number of training samples for the glioma class as it was observed that this class was the class with the largest proportion of incorrect predictions. Imbalanced data had the above-stated splits for all classes, except the glioma class which had 836 train, 50 validation, and 50 test images. Both the original and adjusted models worked best with imbalanced data while Resnet worked best with balanced data, so those datasets were used for their respective models.
 </p>
 
 
 
 <h2>Models</h2>
 
-<p> We compared the original model to an adjsuted  model we created.
-</p>
+<p> We compared the performance and learning abilities of the adjusted, original, and Resnet models.</p>
 
 
 <!DOCTYPE html>
@@ -227,7 +238,8 @@
 
 <h3>Training</h3>
 
-<p> All models were trained using Cross Entropy Loss and the Adam optimizer. The adjusted models were trained for 15 epochs with a learning rate of 0.001 while the original paper models were trained for 10 epochs with a learning rate of 0.001 as was specified in the original paper.
+<p> 
+  All models were trained using Cross Entropy Loss and the Adam optimizer. The adjusted models were trained for 20 epochs with a learning rate of 0.001 while the original paper models were trained for 10 epochs with a learning rate of 0.001 as was specified in the original paper. Resnet was trained for 2 epochs with a learning rate of 0.0001.
 </p>
 
 
@@ -240,7 +252,7 @@
 
     <h5>Adjusted Model</h5>
 
-    <p>Test Loss: 0.5363, Test Accuracy: 80.33%
+    <p>Test Loss: 0.596, Test Accuracy: 82%
     </p>
 
     <p>Figure 1: Confusion Matrix for Adjusted Model</p>
@@ -308,7 +320,7 @@
     
     <h5>Original Model</h5>
 
-    <p>Test Loss: 1.13, Test Accuracy: 61%
+    <p>Test Loss: 1.048, Test Accuracy: 68.86%
     </p>
 
     <p>Figure 1.1: Confusion Matrix for Original model</p>
@@ -363,23 +375,21 @@
   </div>
 </div>
 
+<h2>Conclusions</h2>
+<p>The best model was Resnet with about 94% accuracy on test data. In the medical domain, a type 1 error is when a model incorrectly predicts the presence of disease and a type 2 error is when the model fails to predict an instance of a disease. Type 2 errors must be avoided and it is also highly sought after for type 1 errors to be minimized. The Resnet model had 0 type 1 and 2 errors which is very encouraging. The majority of mistakes were made on class 1 which suggests that training with a higher balance of class 1 samples may improve model performance. While it was not feasible to include all outputs from each convolution as there were too many, interesting convolution outputs were included. Convolutions 1 and 10 appear to pick up on textures and highlight the parietal lobe of the brain. Convolution 2 created more black and white scans of the brain. Convolution 15 was a large layer with low level features of the brain. The last layers including convolutions 39, 49, and 53 tended to have very high level features. 
+</p>
 
-<!-- <ul> For each model
-  Qi: Tumor + healthy
-  Julia: Tumor only
-  Qi: Class 1 and 2 tumor
-  <li>Confusion matrices</li>
-  <li>Julia: Accuracy, preciison, recall scors</li>
-  <li>Julia: Show correct vs inccorect image predictions</li>
-  <li>Qi: Show graphs with training and val loss</li>
-  <li>Julia: See what is happening with weights and biases during learning (exploding, not learning, etc.)</li>
-  <li>Qi: observing intermediate layer outputs</li>
+<p>
+  The next best model was the adjusted model with about 82% accuracy. This model also made most of its mistakes on class 1. The adjusted model also had no type 2 errors and just 6% type 1 errors which is likely acceptable. The validation accuracy was significantly lower than the training accuracy which may suggest the model overfitting to training data, despite different numbers of epochs and learning rates not improving test accuracy. Of the convolutions, the first appeared to pick up on textures, the second grasped lower-level features, and the third highlighted higher-level features. There were issues presented by the gradients that may signify its inability to learn well. The parameter gradients for the first linear layer and activation gradients for all convolutions were centered around 0 which may lead to vanishing gradients and hinder learning ability during training. Despite dropouts being added and not helping model performance, other techniques like batchnorm layers could be tested to improve the model’s learning and overall performance. 
+</p>
 
+<p>
+  The worst-performing model was the original model from the paper with a test accuracy of about 69%. This model had a lower type 1 error rate than the adjusted model of 2% and made no type 2 errors. Much like the first and third convolutions in the adjusted model, the original model’s first convolution picked up on textures and the second convolution picked up on higher-level features. As seen in the adjusted model, the parameter gradients for linear layer 1 and activation gradients for all convolutions were centered around 0 which may lead to vanishing gradients during training. 
+</p>
 
-</ul>
-
-<p>TODO
-</p> -->
+<p>
+  Interestingly, none of the models made type 2 errors, signifying they could easily distinguish between healthy and tumor images. The models with more convolutions seemed to be the best, suggesting more convolutions are especially important in this context. It was surprising that Resnet did not achieve higher accuracy given the depth of that model. Since Resnet was the best performing model, in the future we would work to improve the models by upsampling the class 1 data points in the training set or experimenting with different depth Resnets.
+</p>
 
 
 <h3>References</h3>
