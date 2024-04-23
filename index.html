@@ -82,26 +82,44 @@ Key takeaways include the model's ability to classify tumors with high accuracy 
 <p> This model uses a straightforward architecture with two convolutional layers and max pooling followed by fully connected layers. It's a basic approach designed to capture fundamental patterns in the image data without overfitting, suitable for smaller datasets or less complex image features. Each convolution was 32 filters with a kernel size of 3. Each maxpool kernel size was 2. The linear layer consisted of 64 neurons.</p>
 
 <h4> Resnet Model</h4>
-<h5>Initial Convolution and Max Pooling</h5>
-<p>The network begins with a 7x7 convolutional layer with 64 filters, stride 2, followed by a 3x3 max pooling layer, also with stride 2. This stage prepares the input for the deeper residual blocks by reducing spatial dimensions and increasing feature depth.</p>
+<ul>
+  <li>Initial Convolution and Max Pooling:
+    <ul>
+      <li>The network begins with a 7x7 convolutional layer with 64 filters, stride 2, followed by a 3x3 max pooling layer, also with stride 2. This stage prepares the input for the deeper residual blocks by reducing spatial dimensions and increasing feature depth.</li>
+    </ul>
+  </li>
 
-<h5>Residual Blocks</h5>
+  <li>Residual Blocks:
+    <ul>
+      <li>Stage 1:
+        <ul>
+          <li>Contains three residual blocks. Each block has three layers: a 1x1 convolution reducing the channels to 64, a 3x3 convolution at 64 filters, and another 1x1 convolution that expands the channels back to 256. The input is added to the output via a skip connection.</li>
+        </ul>
+      </li>
+      <li>Stage 2:
+        <ul>
+          <li>Similar to stage 1 but with four blocks and the channels increased to 128 in the 3x3 convolution, with the output expanded to 512.</li>
+        </ul>
+      </li>
+      <li>Stage 3:
+        <ul>
+          <li>Consists of six blocks with 256 filters in the 3x3 convolution layer, expanding the output to 1024.</li>
+        </ul>
+      </li>
+      <li>Stage 4:
+        <ul>
+          <li>Includes three blocks, boosting the 3x3 convolution filters to 512 with output expanded to 2048.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 
-<h6>Stage 1</h6>
-<p>Contains three residual blocks. Each block has three layers: a 1x1 convolution reducing the channels to 64, a 3x3 convolution at 64 filters, and another 1x1 convolution that expands the channels back to 256. The input is added to the output via a skip connection.</p>
-
-<h6>Stage 2</h6>
-<p>Similar to stage 1 but with four blocks and the channels increased to 128 in the 3x3 convolution, with the output expanded to 512.</p>
-
-<h6>Stage 3</h6>
-<p>Consists of six blocks with 256 filters in the 3x3 convolution layer, expanding the output to 1024.</p>
-
-<h6>Stage 4</6>
-<p>Includes three blocks, boosting the 3x3 convolution filters to 512 with output expanded to 2048.</p>
-
-<h5>Ending with Global Average Pooling and Fully Connected Layer</h5>
-<p>The network completes with a global average pooling layer that reduces each feature map to a single value, followed by a fully connected layer that outputs the final classification.</p>
-
+  <li>Ending with Global Average Pooling and Fully Connected Layer:
+    <ul>
+      <li>The network completes with a global average pooling layer that reduces each feature map to a single value, followed by a fully connected layer that outputs the final classification.</li>
+    </ul>
+  </li>
+</ul>
 
 
 <!DOCTYPE html>
