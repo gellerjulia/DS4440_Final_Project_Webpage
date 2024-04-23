@@ -2,8 +2,8 @@ body, td, th {
   font-family: 'Open Sans', sans-serif;
 }
 h2 {
-  margin-top: 1ex; /* Keep the margin-top as desired */
-  margin-bottom: 0.5rem; /* Adjust as needed to make the space smaller */
+  margin-top: 0ex; /* Keep the margin-top as desired */
+  margin-bottom: 0rem; /* Adjust as needed to make the space smaller */
 }
 
 /* Deep blues */
