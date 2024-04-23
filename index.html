@@ -230,7 +230,81 @@ Key takeaways include the model's ability to classify tumors with high accuracy 
         </tr>
     </table>
   </div>
+    <div class="table">
+      <h2>Resnet Model Architecture</h2>
+      <table border="1">
+     <tr>
+       <th>Layer (type)</th>
+       <th>Output Shape</th>
+       <th>Param #</th>
+       <th>Activation</th>
+     </tr>
+     <tr>
+       <td>Input</td>
+       <td>(-1, 1, 64, 64)</td>
+       <td></td>
+       <td></td>
+     </tr>
+     <tr>
+       <td>Conv2d</td>
+       <td>(-1, 16, 64, 64)</td>
+       <td>160</td>
+       <td></td>
+     </tr>
+     <tr>
+       <td>MaxPool2d</td>
+       <td>(-1, 16, 32, 32)</td>
+       <td></td>
+       <td>ReLU</td>
+     </tr>
+     <tr>
+       <td>Conv2d</td>
+       <td>(-1, 32, 32, 32)</td>
+       <td>4,640</td>
+       <td></td>
+     </tr>
+     <tr>
+       <td>MaxPool2d</td>
+       <td>(-1, 32, 16, 16)</td>
+       <td></td>
+       <td>ReLU</td>
+     </tr>
+     <tr>
+       <td>Conv2d</td>
+       <td>(-1, 64, 16, 16)</td>
+       <td>18,496</td>
+       <td></td>
+     </tr>
+     <tr>
+       <td>MaxPool2d</td>
+       <td>(-1, 64, 8, 8)</td>
+       <td></td>
+       <td>ReLU</td>
+     </tr>
+   
+     <tr>
+       <td>Linear</td>
+       <td>(-1, 128)</td>
+       <td>524,416</td>
+       <td>ReLU</td>
+     </tr>
+     <tr>
+       <td>Linear</td>
+       <td>(-1, 4)</td>
+       <td>516</td>
+       <td></td>
+     </tr>
+     <tr>
+       <td>Total Parameters:</td>
+       <td></td>
+       <td>548,228</td>
+       <td></td>
+     </tr>
+      </table>
+    </div>
+
 </div>
+
 
 </body>
 </html>
