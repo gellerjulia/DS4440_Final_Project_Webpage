@@ -13,7 +13,7 @@ h2 {
 
 .nd-pageheader {
   padding: 2rem 15px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   color: white;
   text-align: center;
   background-color: #233BF5;
@@ -25,7 +25,7 @@ h2 {
 
 .nd-pagefooter {
   color: white;
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
   padding: 1rem;
   text-align: center;
   background-color: #233BF5;
