@@ -241,63 +241,70 @@ Key takeaways include the model's ability to classify tumors with high accuracy 
      </tr>
      <tr>
        <td>Input</td>
-       <td>(-1, 1, 64, 64)</td>
+       <td>(-1, 1, 256, 254)</td>
        <td></td>
        <td></td>
      </tr>
      <tr>
        <td>Conv2d</td>
-       <td>(-1, 16, 64, 64)</td>
-       <td>160</td>
+       <td>(-1, 64, 128, 127)</td>
+       <td>9,408</td>
        <td></td>
      </tr>
      <tr>
-       <td>MaxPool2d</td>
-       <td>(-1, 16, 32, 32)</td>
-       <td></td>
+       <td>BatchNorm2d</td>
+       <td>(-1, 64, 128, 127)</td>
+       <td>128</td>
        <td>ReLU</td>
      </tr>
      <tr>
-       <td>Conv2d</td>
-       <td>(-1, 32, 32, 32)</td>
-       <td>4,640</td>
-       <td></td>
-     </tr>
-     <tr>
-       <td>MaxPool2d</td>
-       <td>(-1, 32, 16, 16)</td>
-       <td></td>
-       <td>ReLU</td>
-     </tr>
-     <tr>
-       <td>Conv2d</td>
-       <td>(-1, 64, 16, 16)</td>
-       <td>18,496</td>
-       <td></td>
-     </tr>
-     <tr>
-       <td>MaxPool2d</td>
-       <td>(-1, 64, 8, 8)</td>
-       <td></td>
-       <td>ReLU</td>
-     </tr>
+      <td>MaxPool2d</td>
+      <td>(-1, 64, 64, 64)</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Conv2d</td>
+      <td>(-1, 64, 64, 64)</td>
+      <td>4,096</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>BatchNorm2d</td>
+      <td>(-1, 64, 64, 64)</td>
+      <td>128</td>
+      <td>ReLU</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>Bottleneck</td>
+      <td>(-1, 2048, 8, 8)</td>
+      <td>0</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>AdaptiveAvgPool2d</td>
+      <td>(-1, 2048, 1, 1)</td>
+      <td>0</td>
+      <td></td>
+    </tr>
    
      <tr>
        <td>Linear</td>
-       <td>(-1, 128)</td>
-       <td>524,416</td>
-       <td>ReLU</td>
-     </tr>
-     <tr>
-       <td>Linear</td>
        <td>(-1, 4)</td>
-       <td>516</td>
-       <td></td>
+       <td>8,196</td>
+       <td>Softmax</td>
      </tr>
+    
      <tr>
        <td>Total Parameters:</td>
        <td></td>
-       <td>548,228</td>
+       <td>23,516,228</td>
        <td></td>
      </tr>
       </table>
