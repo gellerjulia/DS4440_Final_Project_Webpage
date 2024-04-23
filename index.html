@@ -84,7 +84,7 @@ Key takeaways include the model's ability to classify tumors with high accuracy 
 <p> TO DO ADD</p>
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -325,8 +325,82 @@ Key takeaways include the model's ability to classify tumors with high accuracy 
 
 
 </body>
-</html>
+</html> -->
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two Tables Side by Side</title>
+<style>
+.table-container {
+  display: flex;
+}
+
+.table-container .table {
+  margin-right: 20px; /* Adjust spacing between tables */
+}
+
+.table {
+  font-size: 14px;
+}
+
+.table th,
+.table td {
+  padding: 8px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.table th {
+  background-color: #f2f2f2;
+}
+
+</style>
+</head>
+<body>
+
+<div class="table-container">
+  <div class="table">
+    <h4>Adjusted Architecture</h4>
+    <table>
+       <tr>
+         <th>Layer (type)</th>
+         <th>Output Shape</th>
+         <th>Param #</th>
+         <th>Activation</th>
+       </tr>
+       <tr>
+         <td>Input</td>
+         <td>(-1, 1, 64, 64)</td>
+         <td>---</td>
+         <td>---</td>
+       </tr>
+       <tr>
+         <td>Conv2d</td>
+         <td>(-1, 16, 64, 64)</td>
+         <td>160</td>
+         <td>---</td>
+       </tr>
+       <tr>
+         <td>MaxPool2d</td>
+         <td>(-1, 16, 32, 32)</td>
+         <td>---</td>
+         <td>ReLU</td>
+       </tr>
+       <!-- Remaining rows -->
+    </table>
+  </div>
+  
+  <!-- Repeat the same structure for the other tables -->
+  
+</div>
+
+
+</body>
+</html>
 
 
 <h3>Training</h3>
