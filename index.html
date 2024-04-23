@@ -72,6 +72,17 @@ Key takeaways include the model's ability to classify tumors with high accuracy 
 
 <p> We compared the performance and learning abilities of the adjusted, original, and Resnet models.</p>
 
+<h3>Adjusted Model</h3>
+<p>
+  We adjusted the original paper’s architecture in hopes of improving the model for our task. This adjusted model adds depth by incorporating an additional convolutional layer and more filters at each stage, allowing it to capture more detailed features in the brain scan images. The progressive increase in filter depth (16, 32, 64) can help in capturing finer details as the image size reduces, aiming to improve the model's ability to differentiate subtle differences between tumor types and healthy brain tissue. Each maxpool has a kernel size of 2 and stride of 2. All convolutions each have a kernel size of 3. The linear layers had 128 and 4 neurons respectively.
+</p>
+
+<h3>Original Model</h3>
+<p> This model uses a straightforward architecture with two convolutional layers and max pooling followed by fully connected layers. It's a basic approach designed to capture fundamental patterns in the image data without overfitting, suitable for smaller datasets or less complex image features. Each convolution was 32 filters with a kernel size of 3. Each maxpool kernel size was 2. The linear layer consisted of 64 neurons.</p>
+
+<h3> Resnet Model</h3>
+<p> TO DO ADD</p>
+
 
 <!DOCTYPE html>
 <html lang="en">
